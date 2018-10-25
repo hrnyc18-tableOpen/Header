@@ -23,8 +23,8 @@ class App extends React.Component {
   render() {
     return (<div>
       <OptionsBanner id="optionsBanner" all={this.state} />
-      <LocationBanner all={this.state} />
       <TitleBanner all={this.state} />
+      <LocationBanner all={this.state} />
       <ImagesBanner all={this.state} />
     </div>)
   }

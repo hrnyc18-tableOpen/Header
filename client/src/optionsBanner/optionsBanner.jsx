@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from '../../style/style.jsx';
-const { GrayBanner, RightUl, Li } = styles;
+const { BannerOptions, UlRight, Li, Center, CenterContainer } = styles;
 
 
 
@@ -15,14 +15,38 @@ class OptionsBanner extends React.Component {
   }
 
   render() {
-    return (<GrayBanner>
-      <RightUl>
-        <Li>For Restauranteurs</Li>
-        <Li>Mobile</Li>
-        <Li>Help</Li>
-        <Li>EN</Li>
-      </RightUl>
-    </GrayBanner>)
+    return (<BannerOptions>
+      <UlRight>
+        <Li>
+          <CenterContainer>
+            <Center>
+              For Restauranteurs
+          </Center>
+          </CenterContainer>
+        </Li>
+        <Li>
+          <CenterContainer>
+            <Center>
+              Mobile
+          </Center>
+          </CenterContainer>
+        </Li>
+        <Li>
+          <CenterContainer>
+            <Center>
+              Help
+          </Center>
+          </CenterContainer>
+        </Li>
+        <Li>
+          <CenterContainer>
+            <Center>
+              EN
+          </Center>
+          </CenterContainer>
+        </Li>
+      </UlRight>
+    </BannerOptions>)
   }
 
 

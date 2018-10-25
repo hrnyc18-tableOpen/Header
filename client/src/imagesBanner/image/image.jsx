@@ -1,6 +1,7 @@
 import React from 'react';
 
-
+import styles from '../../../style/style.jsx';
+const { Li, Img } = styles;
 
 
 class Image extends React.Component {
@@ -14,8 +15,10 @@ class Image extends React.Component {
 
 
   render() {
-    return (<div>
-    </div>)
+    return (<Li>
+      <Img src={this.props.url} />
+
+    </Li >)
   }
 }
 
