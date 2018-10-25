@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 
 import ImagesBanner from './imagesBanner/imagesBanner.jsx';
 import LocationBanner from './locationBanner/locationBanner.jsx';
 import OptionsBanner from './optionsBanner/optionsBanner.jsx';
 import TitleBanner from './titleBanner/titleBanner.jsx';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 
 class App extends React.Component {
@@ -21,12 +22,16 @@ class App extends React.Component {
 
   render() {
     return (<div>
-      <ImagesBanner all={this.state} />
+      <OptionsBanner id="optionsBanner" all={this.state} />
       <LocationBanner all={this.state} />
-      <OptionsBanner all={this.state} />
       <TitleBanner all={this.state} />
+      <ImagesBanner all={this.state} />
     </div>)
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+
+
