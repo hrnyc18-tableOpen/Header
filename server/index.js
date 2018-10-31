@@ -1,27 +1,48 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const model = require('./model.js');
+const path = require('path');
 let app = express();
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
+
+
 app.post('/header', function (req, res) {
 
-
-  res.send({
-    images: [
-      "https://resizer.otstatic.com/v2/photos/large/24010777.jpg",
-      "https://resizer.otstatic.com/v2/photos/large/23872837.jpg",
-      "https://ot-foodspotting-production.s3.amazonaws.com/reviews/654855/thumb_600.jpg",
-      "https://ot-foodspotting-production.s3.amazonaws.com/reviews/4331043/thumb_600.jpg",
-      "https://ot-foodspotting-production.s3.amazonaws.com/reviews/4331079/thumb_600.jpg"
-    ],
-    currentLocation: {
-      country: 'United States',
-      metro: 'New York / Tri-State Area',
-      region: 'Manhattan',
-      community: 'Theater District / Times Square'
-    }
+  model.getImagesFromDb(req.body.id, (err, images) => {
+    // console.log(images);
+    res.send({
+      images,
+      currentLocation: {
+        country: 'United States',
+        metro: 'New York / Tri-State Area',
+        region: 'Manhattan',
+        community: 'Theater District / Times Square'
+      }
+    });
   });
+  // res.send({
+  //   images: model.getImagesFromDb(null, (err, arr) => { return (arr); }),
+  //   // images: [
+  //   //   "https://resizer.otstatic.com/v2/photos/large/24010777.jpg",
+  //   //   "https://resizer.otstatic.com/v2/photos/large/23872837.jpg",
+  //   //   "https://ot-foodspotting-production.s3.amazonaws.com/reviews/654855/thumb_600.jpg",
+  //   //   "https://ot-foodspotting-production.s3.amazonaws.com/reviews/4331043/thumb_600.jpg",
+  //   //   "https://ot-foodspotting-production.s3.amazonaws.com/reviews/4331079/thumb_600.jpg",
+  //   //   "https://resizer.otstatic.com/v2/photos/large/24010777.jpg",
+  //   //   "https://resizer.otstatic.com/v2/photos/large/23872837.jpg",
+  //   //   "https://ot-foodspotting-production.s3.amazonaws.com/reviews/654855/thumb_600.jpg",
+  //   //   "https://ot-foodspotting-production.s3.amazonaws.com/reviews/4331043/thumb_600.jpg",
+  //   //   "https://ot-foodspotting-production.s3.amazonaws.com/reviews/4331079/thumb_600.jpg"
+  //   // ],
+  //   currentLocation: {
+  //     country: 'United States',
+  //     metro: 'New York / Tri-State Area',
+  //     region: 'Manhattan',
+  //     community: 'Theater District / Times Square'
+  //   }
+  // });
 });
 
 app.get('/header', function (req, res) {
@@ -46,6 +67,10 @@ app.post('/options', (req, res) => {
     list = ['iOS App', 'Android App'];
   }
   res.send(list);
+});
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/dist/index.html'));
 });
 
 let port = 3040;

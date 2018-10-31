@@ -24,7 +24,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var id = 'REPLACE_ME';
+    let url = window.location.href.split('/');
+    var id = url[url.length - 1];
+    console.log(id);
     axios.post('/header', { id })
       .then((res) => {
         this.setState({ images: res.data.images })

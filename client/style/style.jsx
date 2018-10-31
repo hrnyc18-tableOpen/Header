@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 
 
+
 const styles = {}
 
 
@@ -65,6 +66,7 @@ height: 32px;
 `;
 styles.BannerImages = styled(styles.Banner)`
 height: 288px;
+width: 1600px;
 `;
 styles.Line = styled.div`
 content: "";
@@ -174,7 +176,7 @@ visibility: hidden;
 
 styles.PopUpItem = styled.div`
 height: 38.59px;
-`
+`;
 styles.SignUpButton = styled.button`
 width: 76.83px;
 height: 32px;
@@ -196,6 +198,57 @@ white-space: nowrap;
   height: 100%; 
   vertical-align: middle;
  }
+`;
+
+
+styles.Grid = styled.div`
+display: grid;
+width: 244px
+grid-template-columns: 368px 368px 368px 244px;
+background-color: #2d333f;
+grid-gap: 2px;
+`;
+
+styles.GridSingles = styled(styles.Grid)`
+grid-template-columns: auto auto auto auto auto auto;
+`
+//width: 244px
+//grid-template-columns: 244px 244px 244px 244px 244px 244px;
+
+
+styles.GridTriple = styled.div`
+display: inline-grid;
+grid-template-areas:
+'pair three'
+'pair three';
+grid-gap: 2px;
+background-color: #2d333f;
+`;
+styles.GridPair = styled(styles.GridTriple)`
+height: 244px;
+width: 122px;
+grid-template-areas:
+'one'
+'two';
+grid-area: pair;
+`;
+
+styles.Image1 = styled.img`
+  grid-area: one;
+  height: 100%
+`;
+styles.Image2 = styled(styles.Image1)`
+  grid-area: two;
+`;
+styles.Image3 = styled(styles.Image1)`
+  grid-area: three;
+`;
+
+styles.SingleImage = styled.img`
+  height: 244px;
+  width: 244px;
+`
+styles.ImageLast = styled(styles.SingleImage)`
 `
 
 
