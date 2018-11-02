@@ -7,11 +7,27 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
+// app.post('/header', function (req, res) {
+//   console.log('id: ', req.body.id)
+//   model.getImagesFromDb(req.body.id, (err, images) => {
+//     // console.log(images);
+//     console.log('images controller: ', images);
+//     res.send({
+//       images,
+//       currentLocation: {
+//         country: 'United States',
+//         metro: 'New York / Tri-State Area',
+//         region: 'Manhattan',
+//         community: 'Theater District / Times Square'
+//       }
+//     });
+//   });
 
 app.post('/header', function (req, res) {
-
-  model.getImagesFromDb(req.body.id, (err, images) => {
+  console.log('id: ', req.body.id)
+  model.getImagesFromDb(req.body.id, (images) => {
     // console.log(images);
+    console.log('images controller: ', images);
     res.send({
       images,
       currentLocation: {

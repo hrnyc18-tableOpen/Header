@@ -1,8 +1,11 @@
 -- SET UP SCHEMA HERE
-DROP DATABASE IF EXISTS header;
-CREATE DATABASE IF NOT EXISTS header;
+-- DROP DATABASE IF EXISTS header;
+-- CREATE DATABASE IF NOT EXISTS header;
+DROP DATABASE IF EXISTS neliades;
+CREATE DATABASE IF NOT EXISTS neliades;
 
-USE header;
+-- USE header;
+USE neliades;
 
 -- ---------------------------------
 -- Restaurant Table---------------------
