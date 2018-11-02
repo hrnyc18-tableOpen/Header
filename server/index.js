@@ -85,7 +85,7 @@ app.post('/options', (req, res) => {
   res.send(list);
 });
 
-app.get('/*', (req, res) => {
+app.get('restaurants/*', (req, res) => {
   res.sendFile(path.join(__dirname + '/../client/dist/index.html'));
 });
 
